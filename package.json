@@ -1,0 +1,19 @@
+{
+  "name": "api-mesto-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Miles8Hunt/API-mesto-project.git"
+  },
+  "author": "Miles8Hunt",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Miles8Hunt/API-mesto-project/issues"
+  },
+  "homepage": "https://github.com/Miles8Hunt/API-mesto-project#readme"
+}
