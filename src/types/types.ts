@@ -5,3 +5,8 @@ export interface UserRequest extends Request {
     _id: string;
   }
 }
+
+export type TypesError = {
+  statusCode: number;
+  message: string;
+};

@@ -1,8 +1,8 @@
 import express, { Response, NextFunction } from 'express';
 import mongoose from 'mongoose';
-import usersRouter from './routes/users';
-import cardsRouter from './routes/cards';
 import { UserRequest } from './types/types';
+import router from './routes/index';
+import errors from './errors/serverError';
 
 const { PORT = 3000 } = process.env;
 const app = express();
@@ -16,11 +16,10 @@ app.use((req: UserRequest, res: Response, next: NextFunction) => {
   req.user = {
     _id: '65cdab8b70d8a34696407e5c',
   };
-
   next();
 });
 
-app.use('/users', usersRouter);
-app.use('/cards', cardsRouter);
+app.use('/', router);
+app.use(errors);
 
 app.listen(PORT);
