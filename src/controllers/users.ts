@@ -20,23 +20,13 @@ export const getUserById = (req: Request, res: Response, next: NextFunction) => 
     .findById(userId)
     .orFail(() => new NotFoundError('Пользователь по указанному _id не найден'))
     .then((user) => res.status(HTTP_STATUS_OK).send(user))
-    .catch((err) => next(err));
-
-  /*
-  userModel
-    .findById(userId)
-
-    .orFail(new Error('notFound'))
-    .then((user) => res.status(200).send(user))
-
     .catch((err) => {
-      if (err.message === 'notFound') {
-        res.status(404).send({ message: 'Пользователь по указанному _id не найден' });
+      if (err instanceof Error.CastError) {
+        next(new BadRequestError('Переданы некорректные данные пользователя (невалидный ID)'));
       } else {
-        res.status(500).send({ message: 'Ошибка сервера (getUserById)' });
+        next(err);
       }
     });
-  */
 };
 
 export const createUser = (req: Request, res: Response, next: NextFunction) => {
