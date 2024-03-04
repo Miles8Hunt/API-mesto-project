@@ -1,13 +1,13 @@
 import { Error } from 'mongoose';
 import HTTP_STATUS from '../constansts/status-codes';
 
-class NotFoundError extends Error {
+class DuplicateError extends Error {
   public statusCode: number;
 
   constructor(message: string) {
     super(message);
-    this.statusCode = HTTP_STATUS.NOT_FOUND_ERROR;
+    this.statusCode = HTTP_STATUS.DUPLICATE_ERROR;
   }
 }
 
-export default NotFoundError;
+export default DuplicateError;
